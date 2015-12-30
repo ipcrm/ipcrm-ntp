@@ -14,6 +14,11 @@ class ntp::params {
   case $::osfamily {
     'RedHat': {
       $package_name = 'ntp'
+      $service_name = 'ntpd'
+      $config_file  = '/etc/ntp.conf'
+    }
+    'Debian': {
+      $package_name = 'ntp'
       $service_name = 'ntp'
       $config_file  = '/etc/ntp.conf'
     }
