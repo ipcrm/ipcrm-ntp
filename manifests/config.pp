@@ -8,6 +8,6 @@ class ntp::config {
     mode    => '0644',
     owner   => 'root',
     group   => 'root',
-    content => template('ntp/ntp.conf.erb')
+    content => template('ntp/ntp.conf.erb'),
   }
 }

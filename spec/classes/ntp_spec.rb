@@ -24,24 +24,11 @@ describe 'ntp' do
             it { is_expected.to contain_service('ntpd') }
           end
 
-          it { is_expected.to contain_file('/etc/ntp.conf').with({
-            'ensure' => 'present',
-            'owner'  => 'root',
-            'group'  => 'root',
-            'mode'   => '0644'
-          })
-          }
-
-          it { is_expected.to contain_file('/etc/ntp.conf')\
-               .with_content(/0.us.pool.ntp.org/) }
-          it { is_expected.to contain_file('/etc/ntp.conf')\
-               .with_content(/1.us.pool.ntp.org/) }
-          it { is_expected.to contain_file('/etc/ntp.conf')\
-               .with_content(/2.us.pool.ntp.org/) }
-          it { is_expected.to contain_file('/etc/ntp.conf')\
-               .with_content(/3.us.pool.ntp.org/) }
-
-
+          it { is_expected.to contain_file('/etc/ntp.conf').with({ 'ensure' => 'present', 'owner' => 'root', 'group' => 'root', 'mode' => '0644' }) }
+          it { is_expected.to contain_file('/etc/ntp.conf').with_content(/0.us.pool.ntp.org/) }
+          it { is_expected.to contain_file('/etc/ntp.conf').with_content(/1.us.pool.ntp.org/) }
+          it { is_expected.to contain_file('/etc/ntp.conf').with_content(/2.us.pool.ntp.org/) }
+          it { is_expected.to contain_file('/etc/ntp.conf').with_content(/3.us.pool.ntp.org/) }
         end
 
         context "ntp class with overriden server parameter" do
@@ -62,25 +49,12 @@ describe 'ntp' do
             it { is_expected.to contain_service('ntpd') }
           end
 
-          it { is_expected.to contain_file('/etc/ntp.conf').with({
-            'ensure' => 'present',
-            'owner'  => 'root',
-            'group'  => 'root',
-            'mode'   => '0644'
-          })
-          }
-
-          it { is_expected.to contain_file('/etc/ntp.conf')\
-               .with_content(/time1.example.com/) }
-          it { is_expected.to contain_file('/etc/ntp.conf')\
-               .with_content(/time2.example.com/) }
-          it { is_expected.to contain_file('/etc/ntp.conf')\
-               .without_content(/0.us.pool.ntp.org/) }
-          it { is_expected.to contain_file('/etc/ntp.conf')\
-               .without_content(/1.us.pool.ntp.org/) }
+          it { is_expected.to contain_file('/etc/ntp.conf').with({ 'ensure' => 'present', 'owner' => 'root', 'group' => 'root', 'mode' => '0644' }) }
+          it { is_expected.to contain_file('/etc/ntp.conf').with_content(/time1.example.com/) }
+          it { is_expected.to contain_file('/etc/ntp.conf').with_content(/time2.example.com/) }
+          it { is_expected.to contain_file('/etc/ntp.conf').without_content(/0.us.pool.ntp.org/) }
+          it { is_expected.to contain_file('/etc/ntp.conf').without_content(/1.us.pool.ntp.org/) }
         end
-
-
       end
     end
   end
