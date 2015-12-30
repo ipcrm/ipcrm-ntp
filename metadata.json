@@ -1,0 +1,25 @@
+{
+  "name": "ipcrm-ntp",
+  "version": "0.1.0",
+  "author": "ipcrm",
+  "summary": "NTP Install/Config",
+  "license": "Apache-2.0",
+  "source": "http://github.com/ipcrm/ipcrm-ntp",
+  "project_page": "https://github.com/ipcrm/ipcrm-ntp",
+  "issues_url": "https://github.com/ipcrm/ipcrm-ntp/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6"
+      ]
+    }
+  ]
+}

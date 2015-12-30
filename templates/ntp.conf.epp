@@ -1,0 +1,15 @@
+<%- | Array $servers
+| -%>
+
+tinker panic 0
+restrict default kod nomodify notrap nopeer noquery
+restrict -6 default kod nomodify notrap nopeer noquery
+restrict 127.0.0.1
+restrict -6 ::1
+
+<% $servers.each -%>
+<% |s| { %>server <%= s %>
+<%- } -%>
+
+
+driftfile /var/lib/ntp/drift
