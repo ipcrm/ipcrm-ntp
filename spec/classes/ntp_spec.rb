@@ -18,9 +18,9 @@ describe 'ntp' do
           it { is_expected.to contain_package('ntp').with_ensure('present') }
 
           case facts[:osfamily]
-					when 'Debian'
+					when /(Debian|Ubuntu)/
             it { is_expected.to contain_service('ntp') }
-          when 'RedHat'
+          when /(RedHat|CentOS)/
             it { is_expected.to contain_service('ntpd') }
           end
 
