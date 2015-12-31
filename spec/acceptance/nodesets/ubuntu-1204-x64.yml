@@ -10,4 +10,4 @@ HOSTS:
 CONFIG:
   log_level: verbose
   color: false
-  type: foss
+  type: aio
