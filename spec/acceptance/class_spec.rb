@@ -1,7 +1,15 @@
 require 'spec_helper_acceptance'
 
 describe 'ntp class' do
-  context 'default parameters' do
+
+		context 'default parameters' do
+		case fact('osfamily')
+			when 'RedHat', 'CentOS'
+				servicename = 'ntpd'
+			when 'Ubuntu', 'Debian'
+				servicename = 'ntp'
+		end
+
     # Using puppet_apply as a helper
     it 'should work idempotently with no errors' do
       pp = <<-EOS
@@ -17,7 +25,7 @@ describe 'ntp class' do
       it { is_expected.to be_installed }
     end
 
-    describe service('ntp') do
+    describe service(servicename) do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
     end

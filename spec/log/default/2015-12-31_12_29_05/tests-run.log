@@ -1,0 +1,20 @@
+[00;32mBegin acceptance/class_spec.rb
+[00;00m[00;31mLoadError: cannot load such file -- spec_helper_acceptance
+[00;00m[00;31m/Users/mcadorette/git/ntp/spec/acceptance/class_spec.rb:1
+[00;00m[00;31m/Users/mcadorette/git/ntp/spec/acceptance/class_spec.rb:1
+[00;00m[00;31m/usr/local/lib/ruby/gems/2.2.0/gems/beaker-2.31.0/lib/beaker/test_case.rb:128
+[00;00m[00;31m/usr/local/lib/ruby/gems/2.2.0/gems/beaker-2.31.0/lib/beaker/test_case.rb:128
+[00;00m[00;31m/usr/local/Cellar/ruby/2.2.3/lib/ruby/2.2.0/benchmark.rb:303
+[00;00m[00;31m/usr/local/lib/ruby/gems/2.2.0/gems/beaker-2.31.0/lib/beaker/test_case.rb:125
+[00;00m[00;31m/usr/local/lib/ruby/gems/2.2.0/gems/beaker-2.31.0/lib/beaker/test_suite.rb:311
+[00;00m[00;31m/usr/local/lib/ruby/gems/2.2.0/gems/beaker-2.31.0/lib/beaker/test_suite.rb:308
+[00;00m[00;31m/usr/local/lib/ruby/gems/2.2.0/gems/beaker-2.31.0/lib/beaker/test_suite.rb:308
+[00;00m[00;31m/usr/local/lib/ruby/gems/2.2.0/gems/beaker-2.31.0/lib/beaker/test_suite.rb:357
+[00;00m[00;31m/usr/local/lib/ruby/gems/2.2.0/gems/beaker-2.31.0/lib/beaker/cli.rb:159
+[00;00m[00;31m/usr/local/lib/ruby/gems/2.2.0/gems/beaker-2.31.0/lib/beaker/cli.rb:99
+[00;00m[00;31m/usr/local/lib/ruby/gems/2.2.0/gems/beaker-2.31.0/bin/beaker:6
+[00;00m[00;31m/usr/local/bin/beaker:23
+[00;00m[00;31m/usr/local/bin/beaker:23
+[00;00m[01;31mWarning: acceptance/class_spec.rb errored in 0.00 seconds
+[00;00m[00;34m  Test Case acceptance/class_spec.rb reported: #<LoadError: cannot load such file -- spec_helper_acceptance>
+[00;00m
