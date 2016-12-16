@@ -12,9 +12,9 @@ describe 'ntp' do
           it { is_expected.to compile.with_all_deps }
           it { is_expected.to contain_class('ntp') }
           it { is_expected.to contain_class('ntp::params') }
-          it { is_expected.to contain_class('ntp::install').that_comes_before('ntp::config') }
+          it { is_expected.to contain_class('ntp::install') }
           it { is_expected.to contain_class('ntp::config') }
-          it { is_expected.to contain_class('ntp::service').that_subscribes_to('ntp::config') }
+          it { is_expected.to contain_class('ntp::service') }
           it { is_expected.to contain_package('ntp').with_ensure('present') }
 
           case facts[:osfamily]
@@ -37,9 +37,9 @@ describe 'ntp' do
           it { is_expected.to compile.with_all_deps }
           it { is_expected.to contain_class('ntp') }
           it { is_expected.to contain_class('ntp::params') }
-          it { is_expected.to contain_class('ntp::install').that_comes_before('ntp::config') }
+          it { is_expected.to contain_class('ntp::install') }
           it { is_expected.to contain_class('ntp::config') }
-          it { is_expected.to contain_class('ntp::service').that_subscribes_to('ntp::config') }
+          it { is_expected.to contain_class('ntp::service') }
           it { is_expected.to contain_package('ntp').with_ensure('present') }
 
           case facts[:osfamily]
