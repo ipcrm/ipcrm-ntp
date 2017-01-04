@@ -14,7 +14,7 @@ node {
         sh '''
         source ~/.bash_profile
         rbenv global 2.3.1
-        eval '$(rbenv init -)'
+        eval "$(rbenv init -)"
         bundle install
         bundle exec rake lint
         bundle exec rake spec
