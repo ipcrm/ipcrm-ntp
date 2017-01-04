@@ -49,6 +49,9 @@ node {
     withEnv(['PATH=/usr/local/bin:$PATH']) {
       ansiColor('xterm') {
         sh '''
+        source ~/.bash_profile
+        rbenv global 2.3.1
+        eval "$(rbenv init -)"
         ruby ../util/pfparser/pfparser.rb -f Puppetfile -m 'ntp' -p 'ref' -d tag
         '''
       }
