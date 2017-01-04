@@ -37,10 +37,7 @@ node {
 //    }
 //
     stage 'Set Build Data'
-    tag = sh(returnStdout: true, script: "git describe --exact-match --tags HEAD 2>/dev/null || echo 'null'")
-    if(tag == null){
-      tag = sh(returnStdout: true, script: "git rev-parse --short HEAD")
-    }
+    tag = sh(returnStdout: true, script: "git describe --exact-match --tags HEAD 2>/dev/null || git rev-parse --short HEAD")
   }
 
   dir('control-repo') {
