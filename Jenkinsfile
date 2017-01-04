@@ -44,7 +44,7 @@ node {
   }
 
   dir('control-repo') {
-    git 'git@github.com:ipcrm/demo_control.git'
+    git url: 'git@github.com:ipcrm/demo_control.git', branch: 'production'
     stage 'Update Control Repo'
     withEnv(['PATH=/usr/local/bin:$PATH']) {
       ansiColor('xterm') {
