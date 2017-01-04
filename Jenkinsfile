@@ -11,14 +11,14 @@ node {
     stage 'Lint and unit tests'
     withEnv(['PATH=/usr/local/bin:$PATH']) {
       ansiColor('xterm') {
-        sh """
+        sh '''
         source ~/.bash_profile
         rbenv global 2.3.1
         eval '$(rbenv init -)'
         bundle install
         bundle exec rake lint
         bundle exec rake spec
-        """
+        '''
       }
     }
 
@@ -48,9 +48,9 @@ node {
     stage 'Update Control Repo'
     withEnv(['PATH=/usr/local/bin:$PATH']) {
       ansiColor('xterm') {
-        sh """
+        sh '''
         ruby ../util/pfparser/pfparser.rb -f Puppetfile -m 'ntp' -p 'ref' -d tag
-        """
+        '''
       }
     }
 
