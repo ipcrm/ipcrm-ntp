@@ -38,7 +38,7 @@ node {
 //
     stage 'Set Build Data'
     def tag = sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
-    if tag == null {
+    if(tag == null){
       def tag = sh(returnStdout: true, script: "git rev-parse --short HEAD")
     }
   }
