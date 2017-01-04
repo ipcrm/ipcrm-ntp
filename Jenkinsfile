@@ -12,12 +12,12 @@ node {
     withEnv(['PATH=/usr/local/bin:$PATH']) {
       ansiColor('xterm') {
         sh """
-          source ~/.bash_profile
-          rbenv global 2.3.1
-          eval '$(rbenv init -)'
-          bundle install
-          bundle exec rake lint
-          bundle exec rake spec
+        source ~/.bash_profile
+        rbenv global 2.3.1
+        eval '$(rbenv init -)'
+        bundle install
+        bundle exec rake lint
+        bundle exec rake spec
         """
       }
     }
@@ -49,7 +49,7 @@ node {
     withEnv(['PATH=/usr/local/bin:$PATH']) {
       ansiColor('xterm') {
         sh """
-          ruby ../util/pfparser/pfparser.rb -f Puppetfile -m 'ntp' -p 'ref' -d tag
+        ruby ../util/pfparser/pfparser.rb -f Puppetfile -m 'ntp' -p 'ref' -d tag
         """
       }
     }
