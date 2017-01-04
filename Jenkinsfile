@@ -4,7 +4,6 @@ node {
     git 'git@github.com:ipcrm/pfparser.git'
   }
 
-
   dir('ipcrm-ntp') {
     git 'git@github.com:ipcrm/ipcrm-ntp.git'
 
@@ -25,14 +24,14 @@ node {
     stage 'Beaker Acceptance Test'
     withEnv(['PATH=/usr/local/bin:$PATH']) {
       ansiColor('xterm') {
-        sh """
+        sh '''
           source ~/.bash_profile
           rbenv global 2.3.1
           eval "$(rbenv init -)"
           bundle install
           export OS_VOL_SUPPORT=false
           bundle exec rake beaker:centos7-openstack
-        """
+        '''
       }
     }
 
