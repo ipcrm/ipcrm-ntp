@@ -22,20 +22,20 @@ node {
       }
     }
 
-//    stage 'Beaker Acceptance Test'
-//    withEnv(['PATH=/usr/local/bin:$PATH']) {
-//      ansiColor('xterm') {
-//        sh """
-//          source ~/.bash_profile
-//          rbenv global 2.3.1
-//          eval "$(rbenv init -)"
-//          bundle install
-//          export OS_VOL_SUPPORT=false
-//          bundle exec rake beaker:centos7-openstack
-//        """
-//      }
-//    }
-//
+    stage 'Beaker Acceptance Test'
+    withEnv(['PATH=/usr/local/bin:$PATH']) {
+      ansiColor('xterm') {
+        sh """
+          source ~/.bash_profile
+          rbenv global 2.3.1
+          eval "$(rbenv init -)"
+          bundle install
+          export OS_VOL_SUPPORT=false
+          bundle exec rake beaker:centos7-openstack
+        """
+      }
+    }
+
     stage 'Set Build Data'
     tag = sh(returnStdout: true, script: "git describe --exact-match --tags HEAD 2>/dev/null || git rev-parse HEAD")
   }
