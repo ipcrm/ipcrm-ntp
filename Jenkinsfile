@@ -46,13 +46,14 @@ node {
   dir('control-repo') {
     git url: 'git@github.com:ipcrm/demo_control.git', branch: 'production'
     stage 'Update Control Repo'
+    env.TAG=$tag
     withEnv(['PATH=/usr/local/bin:$PATH']) {
       ansiColor('xterm') {
         sh '''
         source ~/.bash_profile
         rbenv global 2.3.1
         eval "$(rbenv init -)"
-        ruby ../util/pfparser.rb -f Puppetfile -m 'ntp' -p ':ref' -d tag
+        ruby ../util/pfparser.rb -f Puppetfile -m 'ntp' -p ':ref' -d $TAG
         '''
       }
     }
