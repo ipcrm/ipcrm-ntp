@@ -60,6 +60,7 @@ node {
         rbenv global 2.3.1
         eval "$(rbenv init -)"
         ruby ../util/pfparser.rb -f Puppetfile -m 'ntp' -p ':ref' -d $TAG
+        git status
         '''
       }
     }
