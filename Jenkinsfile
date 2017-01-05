@@ -54,7 +54,11 @@ node {
     }
 
     stage('Deploy Latest Version'){
-      build job: 'pipeline-demo_control', parameters: [string(name: 'TAG', value: env.BUILD_TAG),string(name: 'MODULE', value: 'ntp'),string(name: 'PARAM', value: ':ref')]
+      build job: 'pipeline-demo_control', parameters: [
+        [$class: 'StringParameterValue',name: 'TAG',value: env.BUILD_TAG],
+        [$class: 'StringParameterValue',name: 'MODULE',value: 'ntp'],
+        [$class: 'StringParameterValue',name: 'PARAM', value: ':ref']
+      ]
     }
 
   }
