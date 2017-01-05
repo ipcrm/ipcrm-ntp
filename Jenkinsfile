@@ -123,7 +123,6 @@ node {
         puppet.job 'production', query: 'nodes { facts { name = "canary" and value = true }}'
       }
 
-      throw error
     }
 
   }
