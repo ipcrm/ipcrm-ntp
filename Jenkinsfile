@@ -1,8 +1,5 @@
 
 node {
-  dir('util') {
-    git 'git@github.com:ipcrm/pfparser.git'
-  }
 
   dir('ipcrm-ntp') {
     git 'git@github.com:ipcrm/ipcrm-ntp.git'
