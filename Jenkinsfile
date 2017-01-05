@@ -79,7 +79,7 @@ node {
 
     stage('Prod: Canary Test'){
       puppet.credentials 'pe-access-token'
-      puppet.job 'production', query: 'facts { name = "canary" and value = "true" }'
+      puppet.job 'production', query: 'nodes { facts { name = "canary" and value = true }}'
     }
 
   }
