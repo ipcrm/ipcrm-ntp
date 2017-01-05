@@ -123,6 +123,7 @@ node {
         puppet.job 'production', query: 'nodes { facts { name = "canary" and value = true }}'
       }
 
+      currentBuild.result = 'FAILURE'
     }
 
   }
