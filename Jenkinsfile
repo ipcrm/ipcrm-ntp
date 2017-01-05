@@ -77,6 +77,10 @@ node {
       puppet.codeDeploy 'production'
     }
 
+    stage('Prod: Canary Test'){
+      puppet.credentials 'pe-access-token'
+      puppet.job 'production', query: 'facts { name = "canary" and value = "true" }'
+    }
 
   }
 }
