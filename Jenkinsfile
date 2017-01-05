@@ -61,15 +61,16 @@ node {
         eval "$(rbenv init -)"
         ruby ../util/pfparser.rb -f Puppetfile -m 'ntp' -p ':ref' -d $TAG
         env
- //       git add Puppetfile
-//        git commit -m 'Jenkins Auto-Commit:
+        git add Puppetfile
+        git commit -m "${BUILD_TAG}"
+        git push origin production
         '''
       }
     }
 
-//    stage 'Promote to Prod'
-//    puppet.credentials 'pe-access-token'
-//    puppet.codeDeploy 'production'
+    stage 'Promote to Prod'
+    puppet.credentials 'pe-access-token'
+    puppet.codeDeploy 'production'
 
 
   }
