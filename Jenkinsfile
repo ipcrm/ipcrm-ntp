@@ -59,11 +59,17 @@ node {
       env.TAG=tag
       withEnv(['PATH=/usr/local/bin:$PATH']) {
         ansiColor('xterm') {
+          previous_version = sh(returnStdout: true, script: '''
+            source ~/.bash_profile
+            rbenv global 2.3.1
+            eval "$(rbenv init -)"
+            ruby ../util/pfparser.rb -r -f Puppetfile -m 'ntp' -p ':ref' -d $TAG
+          ''')
+        }
+      }
+      withEnv(['PATH=/usr/local/bin:$PATH']) {
+        ansiColor('xterm') {
           sh '''
-          source ~/.bash_profile
-          rbenv global 2.3.1
-          eval "$(rbenv init -)"
-          ruby ../util/pfparser.rb -f Puppetfile -m 'ntp' -p ':ref' -d $TAG
           git add Puppetfile
           git commit -m "${BUILD_TAG}"
           git push origin production
@@ -77,9 +83,47 @@ node {
       puppet.codeDeploy 'production'
     }
 
-    stage('Prod: Canary Test'){
-      puppet.credentials 'pe-access-token'
-      puppet.job 'production', query: 'nodes { facts { name = "canary" and value = true }}'
+    try {
+      stage('Prod: Canary Test'){
+        puppet.credentials 'pe-access-token'
+        puppet.job 'production', query: 'nodes { facts { name = "canary" and value = true }}'
+      }
+    } catch (error) {
+
+      stage('Revert Control Repo'){
+        env.TAG=previous_version
+        withEnv(['PATH=/usr/local/bin:$PATH']) {
+          ansiColor('xterm') {
+            sh '''
+              source ~/.bash_profile
+              rbenv global 2.3.1
+              eval "$(rbenv init -)"
+              ruby ../util/pfparser.rb -r -f Puppetfile -m 'ntp' -p ':ref' -d $TAG
+            '''
+          }
+        }
+        withEnv(['PATH=/usr/local/bin:$PATH']) {
+          ansiColor('xterm') {
+            sh '''
+            git add Puppetfile
+            git commit -m "${BUILD_TAG}"
+            git push origin production
+            '''
+          }
+        }
+      }
+
+      stage('Downgrade Production'){
+        puppet.credentials 'pe-access-token'
+        puppet.codeDeploy 'production'
+      }
+
+      stage('Prod: Canary Test'){
+        puppet.credentials 'pe-access-token'
+        puppet.job 'production', query: 'nodes { facts { name = "canary" and value = true }}'
+      }
+
+      throw error
     }
 
   }
