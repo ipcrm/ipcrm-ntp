@@ -101,7 +101,7 @@ node {
               source ~/.bash_profile
               rbenv global 2.3.1
               eval "$(rbenv init -)"
-              ruby ../util/pfparser.rb -r -f Puppetfile -m $MODULE -p $PARAM -d $TAG
+              ruby ../util/pfparser.rb -r -f Puppetfile -m 'ntp' -p ':ref' -d $TAG
             '''
           }
         }
