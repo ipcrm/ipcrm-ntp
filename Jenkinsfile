@@ -2,7 +2,7 @@
 node {
 
   dir('util') {
-    git url: 'git@github.com:ipcrm/pfparser.git', poll: false
+    git poll: false, url: 'git@github.com:ipcrm/pfparser.git'
   }
 
   dir('ipcrm-ntp') {
@@ -57,7 +57,7 @@ node {
   }
 
   dir('control-repo') {
-    git url: 'git@github.com:ipcrm/demo_control.git', branch: 'production', poll: false
+    git poll: false, url: 'git@github.com:ipcrm/demo_control.git', branch: 'production'
 
     stage('Update Control Repo'){
       withEnv(['PATH=/usr/local/bin:$PATH']) {
