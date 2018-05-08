@@ -1,0 +1,8 @@
+gem 'beaker'
+gem 'beaker-rspec'
+gem 'vagrant-wrapper'
+gem 'serverspec'
+gem 'beaker-puppet_install_helper'
+gem 'master_manipulator'
+gem 'beaker-hostgenerator'
+
