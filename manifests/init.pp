@@ -20,8 +20,8 @@ class ntp (
 
   # validate parameters here
 
-  class { '::ntp::install': } ->
-  class { '::ntp::config': } ~>
-  class { '::ntp::service': } ->
-  Class['::ntp']
+  class { '::ntp::install': }
+    -> class { '::ntp::config': }
+    ~> class { '::ntp::service': }
+    -> Class['::ntp']
 }
