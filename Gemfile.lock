@@ -9,7 +9,7 @@ GEM
     aws-sdk-v1 (1.67.0)
       json (~> 1.4)
       nokogiri (~> 1)
-    beaker (3.34.0)
+    beaker (3.35.0)
       beaker-abs (~> 0.4)
       beaker-aws (~> 0.1)
       beaker-docker (~> 0.1)
@@ -92,12 +92,10 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     excon (0.62.0)
     facter (2.5.1)
-    facter (2.5.1-universal-darwin)
-      CFPropertyList (~> 2.2)
     facterdb (0.5.2)
       facter
       jgrep
-    faraday (0.15.0)
+    faraday (0.15.1)
       multipart-post (>= 1.2, < 3)
     fast_gettext (1.1.2)
     fission (0.5.0)
@@ -205,13 +203,6 @@ GEM
       pry (~> 0.10)
     public_suffix (3.0.2)
     puppet (5.5.1)
-      facter (> 2.0.1, < 4)
-      fast_gettext (~> 1.1.2)
-      hiera (>= 3.2.1, < 4)
-      locale (~> 2.1)
-      multi_json (~> 1.10)
-    puppet (5.5.1-universal-darwin)
-      CFPropertyList (~> 2.2)
       facter (> 2.0.1, < 4)
       fast_gettext (~> 1.1.2)
       hiera (>= 3.2.1, < 4)
@@ -358,7 +349,7 @@ DEPENDENCIES
   fast_gettext
   json (<= 2.0.4)
   master_manipulator
-  puppet (= 5.5.1)
+  puppet
   puppet-blacksmith (~> 3.4)
   puppet-module-posix-default-r2.4
   puppet-module-posix-dev-r2.4
